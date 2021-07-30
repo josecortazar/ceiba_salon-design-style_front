@@ -1,0 +1,59 @@
+<div class="contenedor" style=" display: flex; justify-content: center;">
+    <mat-card>
+      <mat-card-header>
+        <h1>Registrar Cliente</h1>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="clienteForm" (ngSubmit)="crear()">
+          <div class="row">
+            <div class="col-sm-2">
+              <label>Nombre:</label>
+            </div>
+            <div class="col-sm-4">
+              <input validar type="text" id="nombre" name="nombre" placeholder="Camila Lopera" class="form-control"
+                formControlName="nombre">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2">
+              <label>Identificación:</label>
+            </div>
+            <div class="col-sm-4">
+              <input validar type="number" id="identificacion" name="identificacion" placeholder="1094852639741"
+                class="form-control" formControlName="identificacion">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2">
+              <label>Correo Electronico:</label>
+            </div>
+            <div class="col-sm-4">
+              <input validar type="text" id="correoElectronico" name="correoElectronico" placeholder="cliente@ejemplo.com"
+                class="form-control" formControlName="correoElectronico">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2">
+              <label>Número Telefonico:</label>
+            </div>
+            <div class="col-sm-4">
+              <input validar type="number" id="numTelefono" name="numTelefono" placeholder="3214559852"
+                class="form-control" formControlName="numTelefono">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2">
+              <label>Fecha de Nacimiento:</label>
+            </div>
+            <div class="col-sm-4">
+              <input validar type="datetime-local" id="fechaNacimiento" name="fechaNacimiento"
+                placeholder="AAAA-MM-DD hh:mm:ss" class="form-control" formControlName="fechaNacimiento" >
+            </div>
+          </div>
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="crear()"> Guardar </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>

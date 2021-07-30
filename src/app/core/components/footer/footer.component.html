@@ -1,0 +1,44 @@
+<footer>
+    <div class="container">
+    </div>
+    <mat-grid-list cols="3" rowHeight="80px">
+        <mat-grid-tile>
+            <div class="row">
+                <div class="box">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li>
+                            <a routerLink="/servicio" [queryParams]="{ type: 'latest' }">Servicios de moda</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="box">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><a routerLink="/contacto">Comunicate con nosotros</a></li>
+                </ul>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="box">
+                <h3>Redes Sociales</h3>
+                <ul>
+                    <li>
+                        <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/">
+                            <span class="iconify" data-icon="akar-icons:facebook-fill" data-inline="false"></span>
+                        </a>
+                        <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/">
+                            <span class="iconify" data-icon="ant-design:instagram-filled" data-inline="false"></span>
+                        </a>
+                        <a target="_blank" rel="noopener noreferrer" href="https://web.whatsapp.com/">
+                            <span class="iconify" data-icon="dashicons:whatsapp" data-inline="false"></span> </a>
+                    </li>
+
+                </ul>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</footer>

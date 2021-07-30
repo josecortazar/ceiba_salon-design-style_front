@@ -1,0 +1,59 @@
+@import "assets/scss/modules/var";
+@import "assets/scss/modules/mixins";
+@import "assets/scss/modules/utility";
+
+// Partials
+@import "assets/scss/partials/reset";
+@import "assets/scss/partials/grids";
+@import "assets/scss/partials/global";
+@import "assets/scss/partials/buttons";
+html, body { height: 100%; }
+
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    width: 97%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+.servicio-grid{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 50px 20px;
+}
+
+
+@media(min-width: 600px){
+    .servicio-grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+}
+
+@media(min-width: 800px){
+    .servicio-grid{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+@media(min-width: 1200px){
+    .servicio-grid{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .container {
+        width: 90%;
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

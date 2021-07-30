@@ -1,0 +1,41 @@
+<div class="contenedor">
+    <mat-card>
+        <mat-card-header>
+
+        </mat-card-header>
+        <mat-card-content>
+            <h1 style="text-align: center; font-family: sans-serif; ">Items de la Reserva</h1>
+            <div id="itemreservas">
+                <ul class="itemreservas" *ngIf="esConsultaVacia">
+                    <br>
+                    <h4 style="text-align: center; margin: 20px;">La reserva no tiene items</h4>
+                </ul>
+                <ul class="itemreservas">
+                    <table cellspacing=25px style="text-align: center">
+                        <thead>
+                            <tr>
+                                <th>IDRESERVA</th>
+                                <th>IDCLIENTE</th>
+                                <th>NOMBRE DEL SERVICIO</th>
+                                <th>VALOR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let itemReserva of listaItemReservas | async">
+                                <td>{{itemReserva.idReserva}}</td>
+                                <td>{{itemReserva.idServicio}}</td>
+                                <td>{{itemReserva.nombre}}</td>
+                                <td>{{itemReserva.valor | currency}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </ul>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <a style="align-items: center; margin-left: 50%;" mat-mini-fab color="primary" id="linkCrearItemReserva"
+                routerLink="/reserva/crear-itemreservas">+</a>
+        </mat-card-actions>
+    </mat-card>
+</div>

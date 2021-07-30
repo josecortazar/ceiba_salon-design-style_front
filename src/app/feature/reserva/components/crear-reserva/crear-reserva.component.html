@@ -1,0 +1,31 @@
+<div class="contenedor" style=" display: flex; justify-content: center;">
+    <mat-card>
+      <mat-card-header>
+        <h3 style="text-align: center; font-family: sans-serif; ">Registrar Reserva</h3>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="reservaForm" (ngSubmit)="crear()">
+          <div class="row">
+            <div class="col-sm-2">
+              <label>Identificación del Cliente:</label>
+            </div>
+            <div class="col-sm-4">
+              <input type="number" id="identificacionCli" name="identificacionCli" placeholder={{identificacionCli}} value={{identificacionCli}} disabled>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2">
+              <label>Fecha para la reserva:</label>
+            </div>
+            <div class="col-sm-4">
+              <input validar type="datetime-local" id="fechaReserva" name="fechaReserva"
+                placeholder="yyyy-MM-dd HH:mm:ss" class="form-control" formControlName="fechaReserva" >
+            </div>
+          </div>
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" [disabled]="reservaForm.invalid" (click)="crear()"> Guardar </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>

@@ -1,0 +1,35 @@
+<div class="contenedor" style=" display: flex; justify-content: center;">
+    <mat-card>
+        <mat-card-header>
+            <h3 style="text-align: center; font-family: sans-serif; ">Registrar Items</h3>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="itemForm" (ngSubmit)="crear()">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label>Id de la Reserva:</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="number" id="idReserva" name="idReserva" placeholder={{idReserva}}
+                            value={{idReserva}} disabled>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label>Servicio a reservar:</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <select id="servicio" name="servicio" class="form-control" formControlName="servicio">
+                            <option value="">--Por favor seleccione un servicio--</option>
+                            <option *ngFor="let servicio of listaServicios  | async" [value]=servicio.id>{{
+                                servicio.nombre | uppercase }} - {{ servicio.valor | currency }}</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" [disabled]="itemForm.invalid" (click)="crear()"> Guardar </button>
+        </mat-card-actions>
+    </mat-card>
+</div>

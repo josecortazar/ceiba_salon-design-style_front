@@ -1,0 +1,74 @@
+<div class="contenedor">
+    <mat-card>
+        <mat-card-header>
+
+        </mat-card-header>
+        <mat-card-content>
+            <h1 style="text-align: center; font-family: sans-serif; ">Reservas del cliente</h1>
+            <div id="reservas">
+
+                <ul class="reservas">
+                    <form [formGroup]="clienteForm" (ngSubmit)="obtenerIdentificacion()">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <label>Ingrese la Identificación del Cliente:</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input validar type="number" id="identificacion" name="identificacion"
+                                    placeholder="1094852639741" class="form-control" formControlName="identificacion">
+                            </div>
+                        </div>
+                    </form>
+                    <br>
+                    <button mat-raised-button color="primary" [disabled]="clienteForm.invalid"
+                        (click)="obtenerIdentificacion()">
+                        Consultar </button>
+                </ul>
+                <ul class="reservas" *ngIf="esConsultaVacia">
+                    <br>
+                    <h4 style="text-align: center; margin: 20px;">El cliente no tiene reservas</h4>
+                </ul>
+                <ul class="reservas" *ngIf="conConsulta">
+                    <table cellspacing=25px style="text-align: center">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>CLIENTE</th>
+                                <th>FECHA DE CREACIÓN</th>
+                                <th>FECHA DE RESERVA</th>
+                                <th>PRECIO NETO</th>
+                                <th>PRECIO TOTAL</th>
+                                <th>CANTIDAD DE SERVICIOS</th>
+                                <th>ANOTACIONES</th>
+                                <th>VER ITEMS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let reserva of listaReservas | async">
+                                <td>{{reserva.id}}</td>
+                                <td>{{reserva.idCliente}}</td>
+                                <td>{{reserva.fechaCreacion}}</td>
+                                <td>{{reserva.fechaReserva}}</td>
+                                <td>{{reserva.precioNeto | currency}}</td>
+                                <td>{{reserva.modificacadorPrecio*reserva.precioNeto | currency}}</td>
+                                <td>{{reserva.cantidadServicios}}</td>
+                                <td *ngIf="reserva.esReservaDeMenor">El cliente debe traer un acompañante</td>
+                                <td *ngIf="!reserva.esReservaDeMenor">Ninguna</td>
+                                <td>
+                                    <button mat-raised-button color="primary" (click)="consultarItems(reserva.id)">
+                                        Revisar Items
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </ul>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <a style="align-items: center; margin-left: 50%;" mat-mini-fab color="primary" id="linkCrearReserva"
+                routerLink="/reserva/crear-reservas">+</a>
+        </mat-card-actions>
+    </mat-card>
+</div>
