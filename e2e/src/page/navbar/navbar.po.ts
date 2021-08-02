@@ -6,10 +6,6 @@ export class NavbarPage {
     linkReservas = element(by.xpath('/html/body/app-root/app-navbar/nav/a[3]'));
     linkContacto = element(by.xpath('/html/body/app-root/app-navbar/nav/a[4]'));
 
-    getTextoMenu1() {
-        return this.linkHome.getText() as Promise<string>;
-    }
-
     async clickBotonHome() {
         await this.linkHome.click();
     }

@@ -9,9 +9,20 @@ export class ServicioService {
   constructor(protected http: HttpService) { }
 
   public consultar() {
-    console.log(this.http.doGet<Servicio[]>(`${environment.endpoint}/servicios/`),this.http.optsName('Listar los servicios'));
     return this.http.doGet<Servicio[]>(`${environment.endpoint}/servicios/`,
       this.http.optsName('Listar los servicios'));
+  }
+
+
+  public guardar(servicio: Servicio) {
+    console.log(servicio);
+    return this.http.doPost<Servicio, boolean>(`${environment.endpoint}/servicios/`, servicio,
+      this.http.optsName('crear/actualizar servicio'));
+  }
+
+  public eliminar(servicio: Servicio) {
+    return this.http.doDelete<boolean>(`${environment.endpoint}/servicios/${servicio}`,
+      this.http.optsName('eliminar servicio'));
   }
 
 }

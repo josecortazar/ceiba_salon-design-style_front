@@ -23,7 +23,12 @@ const routes: Routes = [
   },
   { 
     path: 'reserva', 
-    loadChildren: () => import('./feature/reserva/reserva.module').then(mod => mod.ReservaModule) },
+    loadChildren: () => import('./feature/reserva/reserva.module').then(mod => mod.ReservaModule) 
+  },
+  { 
+    path: 'admin', 
+    loadChildren: () => import('./feature/admin/admin.module').then(mod => mod.AdminModule) 
+  },
   { 
     path: 'contacto', 
     component: ContactoComponent, 

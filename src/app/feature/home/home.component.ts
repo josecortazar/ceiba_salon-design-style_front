@@ -1,4 +1,3 @@
-import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Trm } from './shared/model/trm';
@@ -20,15 +19,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.consultar();
-    ///https://www.datos.gov.co/resource/ceyp-9c7c.json?vigenciadesde=2021-07-29
   }
 
   consultar() {
-    var fechaActual = Date.now();
-    var datePipe = new DatePipe("en-US");
-    var fechaActualFormateada=  datePipe.transform(fechaActual, 'yyyy-MM-dd');
 
-    this.trmConsulta = this.trmServices.consultarPorFecha(fechaActualFormateada);
+    this.trmConsulta = this.trmServices.consultarPorFecha();
 
     this.trmConsulta.subscribe(
       data => {
