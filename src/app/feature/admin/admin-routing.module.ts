@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CrearServicioComponent } from './components/crear-servicio/crear-servicio.component';
 import { ListarClientesComponent } from './components/listar-clientes/listar-clientes.component';
 import { ListarReservasComponent } from './components/listar-reservas/listar-reservas.component';
 import { ListarServiciosComponent } from './components/listar-servicios/listar-servicios.component';
@@ -21,6 +22,11 @@ const routes: Routes = [
       {
         path: 'listar-servicios',
         component: ListarServiciosComponent
+      }
+      ,
+      {
+        path: 'crear-servicio',
+        component: CrearServicioComponent
       }
     ]
   }

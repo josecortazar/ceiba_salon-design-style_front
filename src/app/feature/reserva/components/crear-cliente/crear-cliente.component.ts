@@ -27,7 +27,7 @@ export class CrearClienteComponent implements OnInit {
     this.clienteServices.guardar(clienteFormateado).subscribe(response => {
       if (response) {
         localStorage.setItem("identificacionCliente", clienteFormateado.identificacion.toString())
-        swal.fire("El cliente se registrado satisfactoriamente.", "Ahora realiza tus reservas");
+        swal.fire("El cliente se ha registrado satisfactoriamente.", "Ahora realiza tus reservas");
         this.router.navigate(["./reserva/listar-reservas/"]);
       }
     }, err => {
